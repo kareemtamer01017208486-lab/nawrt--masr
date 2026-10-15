@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f4ef">
+  <title>نور مصر | اكتشف مصر</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="نور مصر">
+      <span class="brand-mark">ن</span>
+      <span>نور <b>مصر</b></span>
+    </a>
+
+    <nav class="main-nav" aria-label="التنقل الرئيسي">
+      <a href="#places" data-i18n="navPlaces">الأماكن</a>
+      <a href="#hotels" data-i18n="navHotels">الإقامة</a>
+      <a href="#transport" data-i18n="navTransport">المواصلات</a>
+      <a href="#my-bookings" data-i18n="navBookings">حجوزاتي</a>
+      <a href="#favorites" data-i18n="navFavorites">المفضلة</a>
+    </nav>
+
+    <div class="header-tools">
+      <label class="language-picker">
+        <span class="visually-hidden" data-i18n="language">اللغة</span>
+        <select id="language-select" aria-label="اختيار اللغة">
+          <option value="ar">العربية</option>
+          <option value="en">English</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+          <option value="es">Español</option>
+          <option value="zh">中文</option>
+          <option value="hi">हिन्दी</option>
+          <option value="bn">বাংলা</option>
+          <option value="pt">Português</option>
+          <option value="ru">Русский</option>
+        </select>
+      </label>
+      <button id="theme-toggle" class="icon-button" type="button"
+        aria-label="تغيير المظهر" title="تغيير المظهر">☾</button>
+      <button id="menu-toggle" class="icon-button menu-toggle" type="button"
+        aria-label="فتح القائمة" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="heroEyebrow">رحلتك المصرية تبدأ هنا</p>
+        <h1 data-i18n="heroTitle">اكتشف مصر<br><span>على طريقتك</span></h1>
+        <p class="hero-description" data-i18n="heroDescription">
+          خطط لرحلتك، اكتشف أماكن جديدة، واحجز تنقلك بسهولة.
+        </p>
+        <a class="button button-primary" href="#places" data-i18n="exploreButton">
+          اكتشف الأماكن <span aria-hidden="true">←</span>
+        </a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <span class="sun"></span>
+        <span class="pyramid pyramid-back"></span>
+        <span class="pyramid pyramid-front"></span>
+        <span class="hero-caption">EGYPT · 2026</span>
+      </div>
+      <div class="hero-bottom">
+        <span data-i18n="heroTagline">من النيل إلى البحر الأحمر</span>
+        <span aria-hidden="true">✳</span>
+      </div>
+    </section>
+
+    <section class="quick-links" aria-label="روابط سريعة">
+      <a href="#places"><span class="quick-icon">⌖</span><span data-i18n="quickPlaces">أماكن تستحق الزيارة</span></a>
+      <a href="#hotels"><span class="quick-icon">⌂</span><span data-i18n="quickHotels">إقامة مناسبة</span></a>
+      <a href="#transport"><span class="quick-icon">↗</span><span data-i18n="quickTransport">تنقّل بسهولة</span></a>
+    </section>
+
+    <section id="places" class="content-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" data-i18n="placesEyebrow">خطط لمغامرتك القادمة</p>
+          <h2 data-i18n="placesTitle">أماكن تخلّي الرحلة ذكرى</h2>
+        </div>
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="place-search" type="search" data-i18n-placeholder="searchPlaceholder"
+            placeholder="ابحث عن مكان أو محافظة">
+        </label>
+      </div>
+
+      <div class="filter-bar">
+        <label>
+          <span data-i18n="governorate">المحافظة</span>
+          <select id="governorate-filter"></select>
+        </label>
+        <label>
+          <span data-i18n="category">التصنيف</span>
+          <select id="category-filter">
+            <option value="" data-i18n="allCategories">كل التصنيفات</option>
+            <option value="historic" data-i18n="historic">تاريخي</option>
+            <option value="nature" data-i18n="nature">طبيعة</option>
+            <option value="beach" data-i18n="beach">شاطئ</option>
+            <option value="culture" data-i18n="culture">ثقافة</option>
+          </select>
+        </label>
+        <label>
+          <span data-i18n="rating">التقييم</span>
+          <select id="rating-filter">
+            <option value="0" data-i18n="anyRating">كل التقييمات</option>
+            <option value="4">4+ ★</option>
+            <option value="4.5">4.5+ ★</option>
+          </select>
+        </label>
+        <label>
+          <span data-i18n="price">السعر</span>
+          <select id="price-filter">
+            <option value="all" data-i18n="anyPrice">كل الأسعار</option>
+            <option value="free" data-i18n="free">مجاني</option>
+            <option value="paid" data-i18n="paid">مدفوع</option>
+          </select>
+        </label>
+      </div>
+      <div id="places-grid" class="card-grid"></div>
+    </section>
+
+    <section id="hotels" class="content-section section-tinted">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" data-i18n="hotelsEyebrow">اختيارات مميزة</p>
+          <h2 data-i18n="hotelsTitle">مكان ترتاح فيه بعد يوم طويل</h2>
+        </div>
+        <a class="text-link" href="#transport" data-i18n="planTrip">خطط لبقية رحلتك ↗</a>
+      </div>
+      <div id="hotels-grid" class="card-grid"></div>
+    </section>
+
+    <section id="transport" class="content-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" data-i18n="transportEyebrow">من نقطة لنقطة</p>
+          <h2 data-i18n="transportTitle">اختار وسيلة تنقلك</h2>
+        </div>
+      </div>
+
+      <div class="transport-switch" role="tablist">
+        <button class="transport-tab is-active" type="button" data-tab="car" role="tab"
+          aria-selected="true" data-i18n="carTab">سيارة خاصة</button>
+        <button class="transport-tab" type="button" data-tab="monorail" role="tab"
+          aria-selected="false" data-i18n="monorailTab">المونوريل</button>
+      </div>
+
+      <form id="car-form" class="booking-panel">
+        <div class="panel-heading">
+          <div><span class="panel-icon">🚘</span><h3 data-i18n="carFormTitle">احجز سيارة</h3></div>
+          <p data-i18n="carFormHint">أدخل تفاصيل رحلتك لمعرفة السعر التقديري.</p>
+        </div>
+        <div class="form-grid">
+          <label><span data-i18n="fullName">الاسم بالكامل</span><input name="name" required autocomplete="name"></label>
+          <label><span data-i18n="phone">رقم الهاتف</span><input name="phone" type="tel" required autocomplete="tel"></label>
+          <label><span data-i18n="departureGovernorate">محافظة الانطلاق</span><select name="fromGov" class="governorate-options" required></select></label>
+          <label><span data-i18n="arrivalGovernorate">محافظة الوصول</span><select name="toGov" class="governorate-options" required></select></label>
+          <label><span data-i18n="departurePoint">نقطة الانطلاق</span><input name="fromPoint" required></label>
+          <label><span data-i18n="arrivalPoint">نقطة الوصول</span><input name="toPoint" required></label>
+          <label>
+            <span data-i18n="vehicleType">نوع السيارة</span>
+            <select name="vehicle">
+              <option value="economy" data-i18n="economy">اقتصادية</option>
+              <option value="family" data-i18n="family">عائلية</option>
+              <option value="minibus" data-i18n="minibus">ميني باص</option>
+            </select>
+          </label>
+          <label><span data-i18n="passengers">عدد الركاب</span><input name="passengers" type="number" min="1" max="20" value="1" required></label>
+          <label><span data-i18n="travelDate">التاريخ</span><input name="date" type="date" required></label>
+          <label><span data-i18n="travelTime">الوقت</span><input name="time" type="time" required></label>
+          <label class="form-wide"><span data-i18n="notes">ملاحظات إضافية</span><textarea name="notes" rows="3"></textarea></label>
+        </div>
+        <div class="form-footer">
+          <p id="car-estimate" class="price-estimate"></p>
+          <button class="button button-primary" type="submit" data-i18n="submitBooking">إرسال طلب الحجز</button>
+        </div>
+      </form>
+
+      <form id="monorail-form" class="booking-panel is-hidden">
+        <div class="panel-heading">
+          <div><span class="panel-icon">🚝</span><h3 data-i18n="monorailFormTitle">احجز رحلة مونوريل</h3></div>
+          <p data-i18n="monorailHint">حدد الخط والمحطات وعدد الركاب.</p>
+        </div>
+        <div class="form-grid">
+          <label><span data-i18n="fullName">الاسم بالكامل</span><input name="name" required autocomplete="name"></label>
+          <label><span data-i18n="phone">رقم الهاتف</span><input name="phone" type="tel" required autocomplete="tel"></label>
+          <label>
+            <span data-i18n="line">الخط</span>
+            <select name="line" id="monorail-line">
+              <option value="east" data-i18n="eastLine">خط شرق النيل</option>
+              <option value="west" data-i18n="westLine">خط غرب النيل</option>
+            </select>
+          </label>
+          <label><span data-i18n="fromStation">محطة الانطلاق</span><select name="fromStation" id="from-station"></select></label>
+          <label><span data-i18n="toStation">محطة الوصول</span><select name="toStation" id="to-station"></select></label>
+          <label><span data-i18n="travelDate">التاريخ</span><input name="date" type="date" required></label>
+          <label><span data-i18n="passengers">عدد الركاب</span><input name="passengers" type="number" min="1" max="20" value="1" required></label>
+        </div>
+        <div class="form-footer">
+          <p class="form-note" data-i18n="localSaveNote">سيُحفظ الطلب على هذا الجهاز.</p>
+          <button class="button button-primary" type="submit" data-i18n="submitBooking">إرسال طلب الحجز</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="my-bookings" class="content-section section-tinted">
+      <div class="section-heading">
+        <div><p class="eyebrow" data-i18n="yourTrips">رحلاتك</p><h2 data-i18n="bookingsTitle">حجوزاتي</h2></div>
+        <select id="booking-filter" aria-label="تصفية الحجوزات">
+          <option value="all" data-i18n="allBookings">كل الطلبات</option>
+          <option value="car" data-i18n="carOnly">السيارات</option>
+          <option value="monorail" data-i18n="monorailOnly">المونوريل</option>
+        </select>
+      </div>
+      <div id="bookings-list" class="card-grid"></div>
+    </section>
+
+    <section id="favorites" class="content-section">
+      <div class="section-heading">
+        <div><p class="eyebrow" data-i18n="yourSaved">أماكنك المحفوظة</p><h2 data-i18n="favoritesTitle">المفضلة</h2></div>
+      </div>
+      <div id="favorites-grid" class="card-grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand" href="#home"><span class="brand-mark">ن</span><span>نور <b>مصر</b></span></a>
+    <p data-i18n="footerText">مصر مليانة حكايات… ابدأ حكايتك.</p>
+    <a href="#home" class="back-top" data-i18n="backTop">العودة للأعلى ↑</a>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
